@@ -1,0 +1,25 @@
+open Core.Std
+open OUnit2
+open Token
+
+let match_token token =
+  match token with
+  | X -> true
+  | O -> true
+  | EMPTY -> true
+
+let test_x test_ctxt =
+  assert_equal true (match_token X)
+
+let test_o test_ctxt =
+ assert_equal true (match_token O)
+
+let test_empty test_ctxt =
+  assert_equal true (match_token EMPTY)
+
+let tests =
+  "suite" >:::
+  ["X is a valid token" >:: test_x;
+   "O is a valid token" >:: test_o;
+   "EMPTY is a valid token" >:: test_empty]
+
