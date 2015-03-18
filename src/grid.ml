@@ -11,12 +11,13 @@ let get_token board index =
 
 let set_token board index token =
   let grid_array = Array.of_list board in
+  (* TODO extract this *)
   Array.set grid_array index token;
   Array.to_list grid_array
 
 let match_empty_cells cell =
   match cell with
-  | EMPTY cell_no -> true
+  | EMPTY _ -> true
   | _ -> false
 
 let extract_cell_number cell =
@@ -33,3 +34,22 @@ let get_rows board =
 let get_columns board =
   let rows = get_rows board in
   List.transpose_exn rows
+
+let get_diagonal board =
+  let rows = get_rows board in
+  List.mapi rows (fun index row -> List.nth_exn row index)
+
+let get_reverse_diagonal board =
+  let rows = get_rows board in
+  List.mapi rows (fun index row ->
+      let reverse_row = List.rev row in
+      List.nth_exn reverse_row index)
+
+let get_diagonals board =
+  [get_diagonal board; get_reverse_diagonal board;]
+
+let win_state_matrix board =
+  let columns = get_columns board in
+  let rows = get_rows board in
+  let diagonals = get_diagonals board in
+  List.concat [rows; columns; diagonals]

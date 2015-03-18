@@ -46,6 +46,45 @@ let get_columns_test test_ctxt =
      [X;O;O]]
     (Grid.get_columns board)
 
+let get_diagonal_test test_ctxt =
+  let board = [X;O;X;
+               O;X;O;
+               O;X;O] in
+  assert_equal
+    [X;X;O]
+    (Grid.get_diagonal board)
+
+let get_reverse_diagonal_test test_ctxt =
+  let board = [X;O;X;
+               O;X;O;
+               O;X;O] in
+  assert_equal
+    [X;X;O]
+    (Grid.get_diagonal board)
+
+let get_diagonals_test test_ctxt =
+  let board = [X;O;X;
+               O;X;O;
+               O;X;O] in
+  assert_equal
+    [[X;X;O];
+     [X;X;O]]
+    (Grid.get_diagonals board)
+
+let win_state_test test_ctxt =
+  let board = [X;O;X;
+               O;X;O;
+               O;X;O] in
+  assert_equal
+    [[X;O;X];
+     [O;X;O];
+     [O;X;O];
+     [X;O;O];
+     [O;X;X];
+     [X;O;O];[X;X;O];
+     [X;X;O]]
+    (Grid.win_state_matrix board)
+
 let tests =
   "Grid suite">:::
   ["test true">:: test1;
@@ -56,5 +95,12 @@ let tests =
    "get empty cells returns the indecies of the empty cells">::
    find_missing_test;
    "get_rows returns a 3x3 list of grid rows">:: get_rows_test;
-   "get_columns returns 3x3 list of columns" >:: get_columns_test
+   "get_columns returns 3x3 list of columns" >:: get_columns_test;
+   "get_diagonal returns the first diagonal">:: get_diagonal_test;
+   "get_reverse_diagonal returns the second diagonal">::
+   get_reverse_diagonal_test;
+   "get_diagonals returns both diagonals as a nested list">::
+   get_diagonals_test;
+   "win_state_matrix returns all of the possible win
+conditions">::win_state_test;
   ]
