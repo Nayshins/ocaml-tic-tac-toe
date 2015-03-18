@@ -23,13 +23,14 @@ let match_empty_cells cell =
 let extract_cell_number cell =
   match cell with
   | EMPTY num -> num
+  | _ -> 0
 
 let get_empty_cells board =
-  let empty_cells = List.filter board match_empty_cells in
-    List.map empty_cells extract_cell_number
+  let empty_cells = List.filter board ~f:match_empty_cells in
+    List.map empty_cells ~f:extract_cell_number
 
 let get_rows board =
- List.groupi board (fun index _ _-> index mod 3 = 0)
+ List.groupi board ~break:(fun index _ _-> index mod 3 = 0)
 
 let get_columns board =
   let rows = get_rows board in
@@ -37,11 +38,11 @@ let get_columns board =
 
 let get_diagonal board =
   let rows = get_rows board in
-  List.mapi rows (fun index row -> List.nth_exn row index)
+  List.mapi rows ~f:(fun index row -> List.nth_exn row index)
 
 let get_reverse_diagonal board =
   let rows = get_rows board in
-  List.mapi rows (fun index row ->
+  List.mapi rows ~f:(fun index row ->
       let reverse_row = List.rev row in
       List.nth_exn reverse_row index)
 

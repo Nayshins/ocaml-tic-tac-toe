@@ -9,13 +9,19 @@ let match_token token =
   | (EMPTY _) -> true
 
 let test_x test_ctxt =
-  assert_equal true (match_token X)
+  assert_equal
+    ~ctxt:test_ctxt
+    true (match_token X)
 
 let test_o test_ctxt =
- assert_equal true (match_token O)
+  assert_equal
+    ~ctxt:test_ctxt
+    true (match_token O)
 
 let test_empty test_ctxt =
-  assert_equal true (match_token (EMPTY 0))
+  assert_equal
+    ~ctxt:test_ctxt
+    true (match_token (EMPTY 0))
 
 let tests =
   "suite" >:::

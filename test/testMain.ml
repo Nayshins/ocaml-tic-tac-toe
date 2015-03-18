@@ -1,7 +1,7 @@
 open Core.Std
 open OUnit2
 
-let tests = 
+let tests =
   "Suite" >:::
   [TokenTest.tests;
    GridTest.tests;

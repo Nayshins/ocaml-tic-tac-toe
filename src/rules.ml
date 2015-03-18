@@ -1,22 +1,46 @@
 open Core.Std
 open Token
 
-(* TODO clean this up *)
+let match_row hd tl =
+  let filtered =
+    List.filter tl ~f:(fun token -> token = hd) in
+  filtered = tl
+
 let check_for_token_win win_states token =
-    List.map win_states (fun row_state ->
+    List.map win_states ~f:(fun row_state ->
       match row_state with
       | [] -> false
-      | hd::tl when hd = token -> 
-        let filtered = 
-          List.filter row_state (fun ele -> ele = token) in
-        filtered = row_state;
-      | _::_ -> false
+      | hd::tl when hd = token -> match_row hd tl
+      | _ -> false
+      )
+
+let check_for_winner win_states =
+    List.map win_states ~f:(fun row_state ->
+      match row_state with
+      | [] -> false
+      | hd::tl when hd = X || hd = O -> match_row hd tl
+      | _ -> false
       )
 
 let is_token_winner win_states token =
   let checked_rows =
     check_for_token_win win_states token in
-  let winning_rows = List.filter checked_rows (fun row -> row = true) in
-  match winning_rows with
-  | [] -> false
-  | hd -> true
+  let winning_rows = List.filter checked_rows ~f:(fun row -> row = true) in
+  winning_rows <> []
+
+let is_winner win_states =
+  let checked_states = check_for_winner win_states in
+  let winning_rows = List.filter checked_states ~f:(fun state -> state = true) in
+  winning_rows <> []
+
+let is_draw board =
+  let empty_cells = Grid.get_empty_cells board in
+  empty_cells = []
+
+let is_game_over board =
+  if is_winner (Grid.win_state_matrix board) then
+    true
+  else if is_draw board then
+    true
+  else
+    false
