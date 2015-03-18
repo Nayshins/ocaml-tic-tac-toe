@@ -18,19 +18,43 @@ let set_token_test test_ctxt =
                 EMPTY 3;EMPTY 4;EMPTY 5;
                 EMPTY 6;EMPTY 7;EMPTY 8;] (Grid.set_token board 0 X)
 
-(* let find_missing_test test_ctxt =
+let find_missing_test test_ctxt =
   let board = [X;O;EMPTY 2;
                O;X;EMPTY 5;
                X;O;EMPTY 8] in
   assert_equal
     [2;5;8]
-    (Grid.find_empty board) *)
+    (Grid.get_empty_cells board)
+
+let get_rows_test test_ctxt =
+  let board = [X;O;X;
+               O;X;O;
+               O;X;O] in
+  assert_equal
+    [[X;O;X];
+     [O;X;O];
+     [O;X;O]]
+    (Grid.get_rows board)
+
+let get_columns_test test_ctxt =
+  let board = [X;O;X;
+               O;X;O;
+               O;X;O] in
+  assert_equal
+    [[X;O;O];
+     [O;X;X];
+     [X;O;O]]
+    (Grid.get_columns board)
 
 let tests =
-  "suite">:::
+  "Grid suite">:::
   ["test true">:: test1;
    "new board returns a board with all EMPTY tokens">:: empty_board;
    "get_token returns the token at a specific index">:: get_token_test;
    "set_token returns a new list with token inserted at index" >::
    set_token_test;
+   "get empty cells returns the indecies of the empty cells">::
+   find_missing_test;
+   "get_rows returns a 3x3 list of grid rows">:: get_rows_test;
+   "get_columns returns 3x3 list of columns" >:: get_columns_test
   ]
