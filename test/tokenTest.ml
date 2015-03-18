@@ -6,7 +6,7 @@ let match_token token =
   match token with
   | X -> true
   | O -> true
-  | EMPTY -> true
+  | (EMPTY _) -> true
 
 let test_x test_ctxt =
   assert_equal true (match_token X)
@@ -15,7 +15,7 @@ let test_o test_ctxt =
  assert_equal true (match_token O)
 
 let test_empty test_ctxt =
-  assert_equal true (match_token EMPTY)
+  assert_equal true (match_token (EMPTY 0))
 
 let tests =
   "suite" >:::

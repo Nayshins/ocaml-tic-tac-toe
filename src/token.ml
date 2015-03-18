@@ -1,3 +1,3 @@
 open Core.Std
 
-type token = X | O | EMPTY
+type token = X | O | EMPTY of int
