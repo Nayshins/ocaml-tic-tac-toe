@@ -24,6 +24,17 @@ let set_token_test test_ctxt =
      EMPTY 3;EMPTY 4;EMPTY 5;
      EMPTY 6;EMPTY 7;EMPTY 8;] (Grid.set_token board 0 X)
 
+let clear_cell_test test_ctxt =
+  let board = [X;O;X;
+               O;X;O;
+               O;X;O] in
+  assert_equal
+    ~ctxt:test_ctxt
+    [EMPTY 0;O;X;
+     O;X;O;
+     O;X;O]
+    (Grid.clear_cell board 0)
+
 let find_missing_test test_ctxt =
   let board = [X;O;EMPTY 2;
                O;X;EMPTY 5;

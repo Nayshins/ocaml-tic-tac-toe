@@ -15,6 +15,9 @@ let set_token board index token =
   Array.set grid_array index token;
   Array.to_list grid_array
 
+let clear_cell board index =
+  set_token board index (EMPTY index)
+
 let match_empty_cells cell =
   match cell with
   | EMPTY _ -> true
@@ -49,6 +52,7 @@ let get_reverse_diagonal board =
 let get_diagonals board =
   [get_diagonal board; get_reverse_diagonal board;]
 
+(* TODO move this to rules module *)
 let win_state_matrix board =
   let columns = get_columns board in
   let rows = get_rows board in
