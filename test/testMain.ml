@@ -5,7 +5,8 @@ let tests =
   "Suite" >:::
   [TokenTest.tests;
    GridTest.tests;
-   RulesTest.tests]
+   RulesTest.tests;
+   PlayerTest.tests]
 
 let _ =
   run_test_tt_main tests
