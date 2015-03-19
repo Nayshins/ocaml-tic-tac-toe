@@ -1,7 +1,20 @@
 open Core.Std
 open Token
 
-module PlayerO = struct
+module type Player = sig
+  val get_token : token
+  val make_move : Token.token list  -> int
+end
+
+module PlayerX : Player = struct
+  let get_token = X
+
+(* TODO extract into functor *)
+  let make_move board =
+     List.nth_exn (Grid.get_empty_cells board) 0
+end
+
+module PlayerO : Player = struct
   let get_token = O
 
   (* human player code
@@ -31,5 +44,3 @@ module PlayerO = struct
       (* Grid.set_token board move get_token *)
       move
 end
-
-

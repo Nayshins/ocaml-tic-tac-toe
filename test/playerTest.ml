@@ -1,8 +1,7 @@
 open Core.Std
 open OUnit2
 open Token
-open PlayerX
-open PlayerO
+open Player
 
 let playerX_test_get_token test_ctxt =
   assert_equal
