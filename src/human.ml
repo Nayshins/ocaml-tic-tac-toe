@@ -1,8 +1,7 @@
 open Core.Std
 open Token
-open Controller
 
-module Human : Controller = struct
+module Human = struct
   let rec get_move () =
     let move =
       try (ConsoleIO.get_player_integer_input ()) with

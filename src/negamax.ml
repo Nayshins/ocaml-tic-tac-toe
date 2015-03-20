@@ -1,8 +1,7 @@
 open Core.Std
 open Token
-open Controller
 
-module Negamax : Controller = struct
+module Negamax = struct
 
   let make_move board token =
     board
