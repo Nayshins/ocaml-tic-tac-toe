@@ -1,7 +1,8 @@
 open Core.Std
 open Player
 open Game
-open Controller
+open Human
+open SimpleComputer
 
 let () =
   let module Player1 = PlayerX in

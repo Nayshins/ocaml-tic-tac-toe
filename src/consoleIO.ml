@@ -1,6 +1,7 @@
 open Core.Std
 open Token
 
+(* TODO add pervasive functor *)
 let get_player_input =
   read_line
 

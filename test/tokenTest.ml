@@ -40,6 +40,13 @@ let test_to_string_EMPTY test_ctxt =
     ~ctxt:test_ctxt
     "   "
     (Token.to_string (EMPTY 0))
+
+let test_get_opposite_X test_ctxt =
+  assert_equal
+    ~ctxt:test_ctxt
+    O
+    (Token.get_opposite X)
+
 let tests =
   "suite" >:::
   ["X is a valid token" >:: test_x;
@@ -48,5 +55,6 @@ let tests =
    "to_string X returns 'X'" >:: test_to_string_X;
    "to_string O returns 'O'" >:: test_to_string_O;
    "to_string EMPTY returns ' '" >:: test_to_string_EMPTY;
+   "get_opposite X returns O" >:: test_get_opposite_X;
   ]
 

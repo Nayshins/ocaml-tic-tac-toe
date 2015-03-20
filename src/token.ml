@@ -7,3 +7,9 @@ let to_string token =
   | X -> " X "
   | O -> " O "
   | EMPTY _  -> "   "
+
+let get_opposite token =
+  if token = X then
+    O
+  else
+    X
