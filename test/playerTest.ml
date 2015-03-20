@@ -2,6 +2,15 @@ open Core.Std
 open OUnit2
 open Token
 open Player
+open Controller
+
+module MockController : Controller = struct
+  let make_move board =
+    0
+end
+
+module PlayerX = PlayerX(MockController)
+module PlayerO = PlayerO(MockController)
 
 let playerX_test_get_token test_ctxt =
   assert_equal

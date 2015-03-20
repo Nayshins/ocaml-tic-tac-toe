@@ -26,19 +26,19 @@ let test_empty test_ctxt =
 let test_to_string_X test_ctxt =
   assert_equal
     ~ctxt:test_ctxt
-    "X"
+    " X "
     (Token.to_string X)
 
 let test_to_string_O test_ctxt =
   assert_equal
     ~ctxt:test_ctxt
-    "O"
+    " O "
     (Token.to_string O)
 
 let test_to_string_EMPTY test_ctxt =
   assert_equal
     ~ctxt:test_ctxt
-    " "
+    "   "
     (Token.to_string (EMPTY 0))
 let tests =
   "suite" >:::

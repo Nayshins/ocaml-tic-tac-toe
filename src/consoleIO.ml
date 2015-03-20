@@ -1,7 +1,5 @@
 open Core.Std
-
-let get_board_string board =
-  List.iter board ~f:(fun token -> print_string (Token.to_string token))
+open Token
 
 let get_player_input =
   read_line
@@ -13,5 +11,18 @@ let get_player_integer_input =
 let print_to_console message =
   print_string message
 
+let string_of_row row =
+  List.map row ~f:(Token.to_string)
+  |> String.concat ~sep:"|"
+
+let concat_seperator board_strings =
+  String.concat board_strings ~sep:"\n---+---+---\n"
+
+let format_rows rows =
+    List.map rows ~f:string_of_row
+
 let print_board board =
-  List.iter board ~f:(fun token -> print_string (Token.to_string token))
+  (Grid.get_rows board)
+  |> format_rows
+  |> concat_seperator
+  |> print_endline

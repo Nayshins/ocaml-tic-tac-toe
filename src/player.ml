@@ -1,46 +1,23 @@
 open Core.Std
 open Token
+open Controller
 
 module type Player = sig
   val get_token : token
   val make_move : Token.token list  -> int
 end
 
-module PlayerX : Player = struct
+module PlayerX (PlayerController : Controller) = struct
   let get_token = X
 
 (* TODO extract into functor *)
   let make_move board =
-     List.nth_exn (Grid.get_empty_cells board) 0
+    PlayerController.make_move board
 end
 
-module PlayerO : Player = struct
+module PlayerO (PlayerController : Controller) = struct
   let get_token = O
 
-  (* human player code
-     rec get_input
-     prompt for selection
-     if valid
-      return int
-     else
-     get_input
-  *)
-
-  let rec get_move () =
-    let move =
-      try (ConsoleIO.get_player_integer_input ()) with
-      | Failure "int_of_string" ->
-        ConsoleIO.print_to_console "Invalid entry please enter a number";
-        get_move () in
-    move
-
-  let rec make_move board =
-    let move = get_move () in
-    if List.mem (Grid.get_empty_cells board) move then
-      move
-    else
-      let () = ConsoleIO.print_to_console
-          "Invalid entry: this box has already been selected" in
-      make_move board
-      (* Grid.set_token board move get_token *)
+  let make_move board =
+    PlayerController.make_move board
 end

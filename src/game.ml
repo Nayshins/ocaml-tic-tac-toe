@@ -23,7 +23,8 @@ module Game (PlayerX : Player) (PlayerO : Player)= struct
 
   let rec game_loop current next board =
     ConsoleIO.print_board board;
-
+    print_newline ();
+    (* TODO have controllers return board list*)
     let board = Grid.set_token board (select_move board current) current in
     if (Rules.is_game_over board) then
       print_string "game over mannn"
