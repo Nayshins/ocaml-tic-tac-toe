@@ -22,7 +22,8 @@ let check_for_winner win_states =
       | _ -> false
       )
 
-let is_token_winner win_states token =
+let is_token_winner board token =
+  let win_states = (Grid.win_state_matrix board) in
   let checked_rows =
     check_for_token_win win_states token in
   let winning_rows = List.filter checked_rows ~f:(fun row -> row = true) in

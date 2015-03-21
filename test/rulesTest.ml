@@ -6,31 +6,31 @@ let test_win_for_token_empty test_ctxt =
   assert_equal
     ~ctxt:test_ctxt
     false
-    (Rules.is_token_winner [[]] X)
+    (Rules.is_token_winner [] X)
 
 let test_win_for_token_multiple_empty test_ctxt =
   assert_equal
     ~ctxt:test_ctxt
     false
-    (Rules.is_token_winner [[EMPTY 0; EMPTY 1];
-                            [EMPTY 3];[EMPTY 5];
-                            [EMPTY 6];[EMPTY 8];] O)
+    (Rules.is_token_winner [EMPTY 0; EMPTY 1;
+                            EMPTY 3;EMPTY 5;
+                            EMPTY 6;EMPTY 8] O)
 
 let test_win_for_token_X test_ctxt =
   assert_equal
     ~ctxt:test_ctxt
     true
-    (Rules.is_token_winner [[X;O;X];
-                            [EMPTY 1; EMPTY 2; EMPTY 3];
-                            [X;X;X]] X)
+    (Rules.is_token_winner [X;O;X;
+                            EMPTY 1; EMPTY 2; EMPTY 3;
+                            X;X;X] X)
 
 let test_win_for_token_O test_ctxt =
   assert_equal
     ~ctxt:test_ctxt
     true
-    (Rules.is_token_winner [[O;O;O];
-                            [EMPTY 1; EMPTY 2; EMPTY 3];
-                            [X;X;X]] O)
+    (Rules.is_token_winner [O;O;O;
+                            EMPTY 1; EMPTY 2; EMPTY 3;
+                            X;X;X] O)
 
 let test_is_winner_with_x test_ctxt =
   assert_equal
