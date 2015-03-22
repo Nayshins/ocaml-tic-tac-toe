@@ -10,10 +10,7 @@ let get_token board index =
   List.nth_exn board index
 
 let set_token board index token =
-  let grid_array = Array.of_list board in
-  (* TODO extract this *)
-  Array.set grid_array index token;
-  Array.to_list grid_array
+  Util.set_nth board index token
 
 let clear_cell board index =
   set_token board index (EMPTY index)
