@@ -1,6 +1,7 @@
 open Core.Std
 open Token
 
+(* TODO test this *)
 module Human = struct
   let rec get_move () =
     let move =

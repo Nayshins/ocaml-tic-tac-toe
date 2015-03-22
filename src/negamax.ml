@@ -28,8 +28,7 @@ module Negamax = struct
       let opponent = Token.get_opposite token in
       let scores  = List.map possible_moves ~f:(fun move ->
           let board = Grid.set_token board move token in
-          let score = -(negamax board (depth + 1) opponent) in
-          score) in
+          -(negamax board (depth + 1) opponent)) in
       List.fold_left scores ~init: Int.min_value ~f: Int.max
 
 
