@@ -1,6 +1,6 @@
 open Core.Std
 open OUnit2
-open ConsoleIO
+open IO
 open Human
 open Token
 
@@ -8,7 +8,7 @@ let player_int_input = ref []
 let printed_text = ref ""
 let printed_board = ref [X]
 
-module MockConsoleIO : ConsoleIO = struct
+module MockConsoleIO : IO = struct
   let get_player_integer_input () =
     let move = List.hd_exn !player_int_input in
     player_int_input := List.tl_exn !player_int_input;

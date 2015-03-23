@@ -1,13 +1,13 @@
 open Core.Std
 open Token
 open Player
-open ConsoleIO
+open IO
 
 module type Game = sig
   val game_setup : unit -> unit
 end
 
-module Game (PlayerX : Player) (PlayerO : Player) (IO : ConsoleIO)= struct
+module Game (PlayerX : Player) (PlayerO : Player) (IO : IO)= struct
 
   let select_move board current_player =
     if current_player = X then

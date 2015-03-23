@@ -1,9 +1,8 @@
 open Core.Std
-open ConsoleIO
+open IO
 open Token
 
-(* TODO test this *)
-module Human (IO : ConsoleIO) = struct
+module Human (IO : IO) = struct
   let rec get_move () =
       try (IO.get_player_integer_input ()) with
         | Failure "int_of_string" ->
