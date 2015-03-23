@@ -29,6 +29,7 @@ let playerX_test_make_move test_ctxt =
     ~ctxt:test_ctxt
     [X]
     (PlayerX.make_move [EMPTY 0])
+
 let tests =
   "Player tests">:::
   ["playerX get_token returns X token" >:: playerX_test_get_token;

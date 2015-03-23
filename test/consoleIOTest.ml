@@ -1,6 +1,7 @@
 open Core.Std
 open OUnit2
 open Token
+open ConsoleIO
 
 let string_of_row_test test_ctxt =
   assert_equal

@@ -1,19 +1,13 @@
 open Core.Std
 open Token
 open Player
-(* let rec game_loop player1 player2 board
-   show board
-   make_move
-   if game_over
-      print winner -> restart?
-   else
-      game_loop player2 player1 board
-*)
+open ConsoleIO
+
 module type Game = sig
   val game_setup : unit -> unit
 end
 
-module Game (PlayerX : Player) (PlayerO : Player)= struct
+module Game (PlayerX : Player) (PlayerO : Player) (IO : ConsoleIO)= struct
 
   let select_move board current_player =
     if current_player = X then
@@ -22,7 +16,7 @@ module Game (PlayerX : Player) (PlayerO : Player)= struct
       PlayerO.make_move board
 
   let rec game_loop current next board =
-    ConsoleIO.print_board board;
+    IO.print_board board;
     print_newline ();
     let board = (select_move board current) in
     if (Rules.is_game_over board) then

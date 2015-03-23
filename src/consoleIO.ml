@@ -1,6 +1,14 @@
 open Core.Std
 open Token
 
+module type ConsoleIO = sig
+  val get_player_input : unit -> string
+  val get_player_integer_input : unit -> int
+  val print_to_console : string -> unit
+  val print_board : Token.token list -> unit
+end
+
+module ConsoleIO = struct
 (* TODO add pervasive functor *)
 let get_player_input =
   read_line
@@ -27,3 +35,4 @@ let print_board board =
   |> format_rows
   |> concat_seperator
   |> print_endline
+end
