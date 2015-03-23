@@ -8,7 +8,8 @@ let tests =
    RulesTest.tests;
    PlayerTest.tests;
    ConsoleIOTest.tests;
-   NegamaxTest.tests;]
+   NegamaxTest.tests;
+   SimpleComputerTest.tests;]
 
 let _ =
   run_test_tt_main tests

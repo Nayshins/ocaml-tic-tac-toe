@@ -38,7 +38,7 @@ let test_to_string_O test_ctxt =
 let test_to_string_EMPTY test_ctxt =
   assert_equal
     ~ctxt:test_ctxt
-    "   "
+    " 1 "
     (Token.to_string (EMPTY 0))
 
 let test_get_opposite_X test_ctxt =
@@ -57,4 +57,3 @@ let tests =
    "to_string EMPTY returns ' '" >:: test_to_string_EMPTY;
    "get_opposite X returns O" >:: test_get_opposite_X;
   ]
-
