@@ -10,7 +10,8 @@ let tests =
    BoardFormatterTest.tests;
    NegamaxTest.tests;
    SimpleComputerTest.tests;
-   HumanTest.tests;]
+   HumanTest.tests;
+   ConsoleIOTest.tests;]
 
 let _ =
   run_test_tt_main tests

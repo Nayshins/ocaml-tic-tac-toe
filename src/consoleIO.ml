@@ -1,22 +1,22 @@
 open Core.Std
 open Token
+open ReaderWriter
 open IO
 
-module ConsoleIO : IO = struct
-(* TODO add pervasive functor *)
+module ConsoleIO (Pervasives : ReaderWriter) : IO  = struct
 let get_player_input =
-  read_line
+  Pervasives.read_line
 
 let get_player_integer_input =
-  (* throws error if input isnt an int*)
-  read_int
+  (* throws string of int Failure *)
+  Pervasives.read_int
 
 let print_to_console message =
-  print_string message
+  Pervasives.print_string message
 
 let print_board board =
   (Grid.get_rows board)
   |> BoardFormatter.format_rows
   |> BoardFormatter.concat_seperator
-  |> print_endline
+  |> Pervasives.print_endline
 end
