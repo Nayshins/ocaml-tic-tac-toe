@@ -21,7 +21,7 @@ module Negamax = struct
             (acc_move,acc_score))
 
   let rec negamax board depth token =
-    if (Rules.is_game_over board) || depth > 4 then
+    if (Rules.is_game_over board) || depth > 5 then
       (board_score board token) / depth
     else
       let possible_moves = Grid.get_empty_cells board in
