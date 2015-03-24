@@ -5,7 +5,7 @@ ttt: src/main.ml
 	./main.native
 
 test: test/testMain.ml
-	corebuild test/testMain.native -r -Is src,test -pkg core -pkg -pkg oUnit -use-ocamlfind -quiet
+	corebuild test/testMain.native -r -Is src,test -pkg core -pkg oUnit -use-ocamlfind -quiet
 	./testMain.native
 
 clean: src/main.ml

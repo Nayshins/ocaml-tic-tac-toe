@@ -10,19 +10,20 @@ open Game
 module Setup (IO:IO) = struct
 
   let controller_message () =
-    IO.print_to_console "Enter 'h' for a human player,\n";
-    IO.print_to_console "Enter 's' for a simple computer player,\n";
-    IO.print_to_console "Enter 'n' for an impossible computer player.\n"
+    IO.print_to_console "Enter 'h' for a human player.\n";
+    IO.print_to_console "Enter 's' for a simple computer player.\n";
+    IO.print_to_console "Enter 'n' for an impossible computer player.\n";
+    IO.print_to_console "\n"
 
   let play_again_message () =
     IO.print_to_console "Would you like to play again?\n";
     IO.print_to_console "enter 'y' to play again,\n";
-    IO.print_to_console "or any other key to quit"
+    IO.print_to_console "or any other key to quit";
+    IO.print_to_console "\n"
 
   let welcome_message () =
     IO.print_to_console "Welcome to Tic Tac Toe!\n";
-    IO.print_to_console "\n";
-
+    IO.print_to_console "\n"
 
   let rec pick_controller () =
     controller_message ();
@@ -37,11 +38,12 @@ h");
       pick_controller ()
 
   let play_again () =
+    play_again_message ();
     let input = IO.get_player_input () in
     input = "y"
 
   let setup_players () =
-    (* TODO combine messages *)
+    welcome_message ();
     IO.print_to_console "Who will be Controlling X?\n";
     let (module Player1Controller : Controller) = pick_controller () in
     let module Player1 = PlayerX (Player1Controller) in
