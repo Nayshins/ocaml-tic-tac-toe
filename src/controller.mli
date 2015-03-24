@@ -1,5 +1,4 @@
 open Core.Std
-open ConsoleIO
 open Token
 
 module type Controller = sig
