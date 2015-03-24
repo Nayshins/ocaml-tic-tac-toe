@@ -1,4 +1,5 @@
 PKG core
+PKG async
 PKG oUnit
 S src/**
 S test/**
