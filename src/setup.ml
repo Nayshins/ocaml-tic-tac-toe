@@ -1,5 +1,4 @@
 open Core.Std
-open Async.Std
 open IO
 open Controller
 open Negamax
@@ -48,5 +47,5 @@ again\n any other key to quit";
     if play_again () then
       setup_loop ()
     else
-      Shutdown.exit 0
+      ()
 end

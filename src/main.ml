@@ -1,5 +1,4 @@
 open Core.Std
-open Async.Std
 open ConsoleIO
 open Setup
 
@@ -10,7 +9,7 @@ let launch_setup () =
 
 
 let () =
-  Command.async_basic
+  Command.basic
   ~summary:"Lets play Tic Tac Toe"
   Command.Spec.(
     empty)
