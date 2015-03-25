@@ -21,6 +21,9 @@ module MockConsoleIO : IO = struct
     printed_text := text;
     ()
 
+  let print_newline () =
+    ()
+
   let print_board board =
     printed_board := board;
     ()
@@ -57,6 +60,7 @@ let test_make_move_on_occupied_sq test_ctxt =
      EMPTY 3; EMPTY 4; EMPTY 5;
      EMPTY 6; EMPTY 7; EMPTY 8;]
     (TestHuman.make_move board O);
+
   assert_equal
     ~ctxt:test_ctxt
     "Invalid entry: This box has already been selected"

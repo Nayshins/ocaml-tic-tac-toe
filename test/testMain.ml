@@ -11,7 +11,8 @@ let tests =
    NegamaxTest.tests;
    SimpleComputerTest.tests;
    HumanTest.tests;
-   ConsoleIOTest.tests;]
+   ConsoleIOTest.tests;
+   GameTest.tests;]
 
 let _ =
   run_test_tt_main tests

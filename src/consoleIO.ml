@@ -14,6 +14,9 @@ let get_player_integer_input =
 let print_to_console message =
   Pervasives.print_string message
 
+let print_newline =
+  Pervasives.print_newline
+
 let print_board board =
   (Grid.get_rows board)
   |> BoardPresenter.format_rows

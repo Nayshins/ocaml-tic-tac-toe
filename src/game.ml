@@ -16,10 +16,11 @@ module Game (PlayerX : Player) (PlayerO : Player) (IO : IO)= struct
 
   let print_winner board token =
     if (Rules.is_draw board) then
-      IO.print_to_console "Game Over: Draw!\n\n"
+      (IO.print_to_console "Game Over: Draw!\n";
+       IO.print_board board)
     else
-      IO.print_to_console ("Game Over:" ^(Token.to_string token) ^"is the
-winner!\n\n")
+      (IO.print_to_console ("Game Over:" ^(Token.to_string token) ^"is the winner!\n");
+      IO.print_board board)
 
   let select_move board current_player =
     if current_player = X then
@@ -29,9 +30,9 @@ winner!\n\n")
 
   let rec game_loop current next board =
     IO.print_board board;
-    print_newline ();
+    IO.print_newline ();
     player_turn_message current;
-    print_newline ();
+    IO.print_newline ();
     let board = (select_move board current) in
     if (Rules.is_game_over board) then
       print_winner board current
