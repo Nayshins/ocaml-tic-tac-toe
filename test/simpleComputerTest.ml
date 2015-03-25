@@ -9,7 +9,7 @@ let make_move_test test_ctxt =
     [X;EMPTY 1; EMPTY 2;
      EMPTY 3; EMPTY 4; EMPTY 5;
      EMPTY 6; EMPTY 7; EMPTY 8;]
-    (SimpleComputer.make_move (Grid.new_board) X)
+    (SimpleComputer.make_move (Board.new_board) X)
 
 let tests =
   "Simple Computer" >:::

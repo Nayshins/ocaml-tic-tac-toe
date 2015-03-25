@@ -19,7 +19,7 @@ module MockPlayerX : Player = struct
   let make_move board =
     let move = List.hd_exn !playerX_moves in
     playerX_moves := List.tl_exn !playerX_moves;
-    Grid.set_token board move X
+    Board.set_token board move X
 end
 
 module MockPlayerO : Player = struct
@@ -29,7 +29,7 @@ module MockPlayerO : Player = struct
   let make_move board =
     let move = List.hd_exn !playerO_moves in
     playerO_moves := List.tl_exn !playerO_moves;
-    Grid.set_token board move O
+    Board.set_token board move O
 end
 
 module MockConsoleIO : IO = struct

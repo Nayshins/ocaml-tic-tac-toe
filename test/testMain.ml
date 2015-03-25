@@ -4,7 +4,7 @@ open OUnit2
 let tests =
   "Suite" >:::
   [TokenTest.tests;
-   GridTest.tests;
+   BoardTest.tests;
    RulesTest.tests;
    PlayerTest.tests;
    BoardPresenterTest.tests;

@@ -11,8 +11,8 @@ module Human (IO : IO) = struct
 
   let rec make_move board token =
     let move = get_move ()  in
-    if List.mem (Grid.get_empty_cells board) (move - 1) then
-      (Grid.set_token board (move -1) token)
+    if List.mem (Board.get_empty_cells board) (move - 1) then
+      (Board.set_token board (move -1) token)
     else
       let () = IO.print_to_console
           "Invalid entry: This box has already been selected" in

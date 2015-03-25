@@ -39,5 +39,5 @@ module Game (PlayerX : Player) (PlayerO : Player) (IO : IO)= struct
     else (game_loop next current board)
 
   let game_setup () =
-    game_loop (PlayerX.get_token) (PlayerO.get_token) (Grid.new_board)
+    game_loop (PlayerX.get_token) (PlayerO.get_token) (Board.new_board)
 end

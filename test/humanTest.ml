@@ -41,7 +41,7 @@ let test_get_move test_ctxt =
 
 let test_make_move test_ctxt =
   player_int_input := [1;1];
-  let board = Grid.new_board in
+  let board = Board.new_board in
   assert_equal
     ~ctxt:test_ctxt
     [X; EMPTY 1; EMPTY 2;

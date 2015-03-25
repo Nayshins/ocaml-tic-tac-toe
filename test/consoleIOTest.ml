@@ -52,7 +52,7 @@ let test_print_to_console test_ctxt =
     !printed_string
 
 let test_print_board test_ctxt =
-  (TestConsoleIO.print_board (Grid.new_board));
+  (TestConsoleIO.print_board (Board.new_board));
   assert_equal
     ~ctxt:test_ctxt
     " 1 | 2 | 3 \n---+---+---\n 4 | 5 | 6 \n---+---+---\n 7 | 8 | 9 \n"

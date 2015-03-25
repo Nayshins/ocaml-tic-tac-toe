@@ -6,7 +6,7 @@ open Strategy
 
 module MockStrategy : Strategy = struct
   let make_move board token =
-    Grid.set_token board 0 token
+    Board.set_token board 0 token
 end
 
 module PlayerX = PlayerX(MockStrategy)

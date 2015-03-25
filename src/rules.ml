@@ -23,7 +23,7 @@ let check_for_winner win_states =
       )
 
 let is_token_winner board token =
-  let win_states = (Grid.win_state_matrix board) in
+  let win_states = (Board.win_state_matrix board) in
   let checked_rows =
     check_for_token_win win_states token in
   let winning_rows = List.filter checked_rows ~f:(fun row -> row = true) in
@@ -35,11 +35,11 @@ let is_winner win_states =
   winning_rows <> []
 
 let is_draw board =
-  let empty_cells = Grid.get_empty_cells board in
+  let empty_cells = Board.get_empty_cells board in
   empty_cells = []
 
 let is_game_over board =
-  if is_winner (Grid.win_state_matrix board) then
+  if is_winner (Board.win_state_matrix board) then
     true
   else if is_draw board then
     true

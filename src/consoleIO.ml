@@ -18,7 +18,7 @@ let print_newline =
   Pervasives.print_newline
 
 let print_board board =
-  (Grid.get_rows board)
+  (Board.get_rows board)
   |> BoardPresenter.format_rows
   |> BoardPresenter.concat_seperator
   |> Pervasives.print_endline

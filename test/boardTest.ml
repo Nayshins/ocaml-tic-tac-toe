@@ -7,22 +7,22 @@ let empty_board test_ctxt = assert_equal
     [EMPTY 0;EMPTY 1;EMPTY 2;
      EMPTY 3;EMPTY 4;EMPTY 5;
      EMPTY 6;EMPTY 7;EMPTY 8;]
-    Grid.new_board
+    Board.new_board
 
 let get_token_test test_ctxt =
-  let board = Grid.new_board in
-  let token = Grid.get_token board 0 in
+  let board = Board.new_board in
+  let token = Board.get_token board 0 in
   assert_equal
     ~ctxt:test_ctxt
     (EMPTY 0) token
 
 let set_token_test test_ctxt =
-  let board = Grid.new_board in
+  let board = Board.new_board in
   assert_equal
     ~ctxt:test_ctxt
     [X;EMPTY 1;EMPTY 2;
      EMPTY 3;EMPTY 4;EMPTY 5;
-     EMPTY 6;EMPTY 7;EMPTY 8;] (Grid.set_token board 0 X)
+     EMPTY 6;EMPTY 7;EMPTY 8;] (Board.set_token board 0 X)
 
 let clear_cell_test test_ctxt =
   let board = [X;O;X;
@@ -33,7 +33,7 @@ let clear_cell_test test_ctxt =
     [EMPTY 0;O;X;
      O;X;O;
      O;X;O]
-    (Grid.clear_cell board 0)
+    (Board.clear_cell board 0)
 
 let find_missing_test test_ctxt =
   let board = [X;O;EMPTY 2;
@@ -42,7 +42,7 @@ let find_missing_test test_ctxt =
   assert_equal
     ~ctxt:test_ctxt
     [2;5;8]
-    (Grid.get_empty_cells board)
+    (Board.get_empty_cells board)
 
 let get_rows_test test_ctxt =
   let board = [X;O;X;
@@ -53,7 +53,7 @@ let get_rows_test test_ctxt =
     [[X;O;X];
      [O;X;O];
      [O;X;O]]
-    (Grid.get_rows board)
+    (Board.get_rows board)
 
 let get_columns_test test_ctxt =
   let board = [X;O;X;
@@ -64,7 +64,7 @@ let get_columns_test test_ctxt =
     [[X;O;O];
      [O;X;X];
      [X;O;O]]
-    (Grid.get_columns board)
+    (Board.get_columns board)
 
 let get_diagonal_test test_ctxt =
   let board = [X;O;X;
@@ -73,7 +73,7 @@ let get_diagonal_test test_ctxt =
   assert_equal
     ~ctxt:test_ctxt
     [X;X;O]
-    (Grid.get_diagonal board)
+    (Board.get_diagonal board)
 
 let get_reverse_diagonal_test test_ctxt =
   let board = [X;O;X;
@@ -82,7 +82,7 @@ let get_reverse_diagonal_test test_ctxt =
   assert_equal
     ~ctxt:test_ctxt
     [X;X;O]
-    (Grid.get_diagonal board)
+    (Board.get_diagonal board)
 
 let get_diagonals_test test_ctxt =
   let board = [X;O;X;
@@ -92,7 +92,7 @@ let get_diagonals_test test_ctxt =
     ~ctxt:test_ctxt
     [[X;X;O];
      [X;X;O]]
-    (Grid.get_diagonals board)
+    (Board.get_diagonals board)
 
 let win_state_test test_ctxt =
   let board = [X;O;X;
@@ -107,10 +107,10 @@ let win_state_test test_ctxt =
      [O;X;X];
      [X;O;O];[X;X;O];
      [X;X;O]]
-    (Grid.win_state_matrix board)
+    (Board.win_state_matrix board)
 
 let tests =
-  "Grid suite">:::
+  "Board suite">:::
   ["new board returns a board with all EMPTY tokens">:: empty_board;
    "get_token returns the token at a specific index">:: get_token_test;
    "set_token returns a new list with token inserted at index" >::

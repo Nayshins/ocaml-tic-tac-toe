@@ -24,23 +24,23 @@ module Negamax = struct
     if (Rules.is_game_over board) || depth > 5 then
       (board_score board token) / depth
     else
-      let possible_moves = Grid.get_empty_cells board in
+      let possible_moves = Board.get_empty_cells board in
       let opponent = Token.get_opposite token in
       let scores  = List.map possible_moves ~f:(fun move ->
-          let board = Grid.set_token board move token in
+          let board = Board.set_token board move token in
           -(negamax board (depth + 1) opponent)) in
       List.fold_left scores ~init: Int.min_value ~f: Int.max
 
   let negamax_base board token =
-    let possible_moves = Grid.get_empty_cells board in
+    let possible_moves = Board.get_empty_cells board in
     let opponent = Token.get_opposite token in
     let move_scores = List.map possible_moves ~f:(fun move ->
-        let board = Grid.set_token board move token in
+        let board = Board.set_token board move token in
         let score = -(negamax board 1 opponent) in
         (move, score)) in
     let best_move_score = best_move_score move_scores in
     fst best_move_score
 
   let make_move board token =
-    Grid.set_token board (negamax_base board token) token
+    Board.set_token board (negamax_base board token) token
 end
