@@ -31,7 +31,6 @@ module Negamax = struct
           -(negamax board (depth + 1) opponent)) in
       List.fold_left scores ~init: Int.min_value ~f: Int.max
 
-
   let negamax_base board token =
     let possible_moves = Grid.get_empty_cells board in
     let opponent = Token.get_opposite token in

@@ -2,15 +2,15 @@ open Core.Std
 open OUnit2
 open Token
 open Player
-open Controller
+open Strategy
 
-module MockController : Controller = struct
+module MockStrategy : Strategy = struct
   let make_move board token =
     Grid.set_token board 0 token
 end
 
-module PlayerX = PlayerX(MockController)
-module PlayerO = PlayerO(MockController)
+module PlayerX = PlayerX(MockStrategy)
+module PlayerO = PlayerO(MockStrategy)
 
 let playerX_test_get_token test_ctxt =
   assert_equal
@@ -34,7 +34,6 @@ let tests =
   "Player tests">:::
   ["playerX get_token returns X token" >:: playerX_test_get_token;
    "playerO get_token returns O token">:: playerO_test_get_token;
-   (* simple computer TODO extract *)
    "playerX get move returns the first open square">:: playerX_test_make_move;
   ]
 
