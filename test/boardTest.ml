@@ -94,21 +94,6 @@ let get_diagonals_test test_ctxt =
      [X;X;O]]
     (Board.get_diagonals board)
 
-let win_state_test test_ctxt =
-  let board = [X;O;X;
-               O;X;O;
-               O;X;O] in
-  assert_equal
-    ~ctxt:test_ctxt
-    [[X;O;X];
-     [O;X;O];
-     [O;X;O];
-     [X;O;O];
-     [O;X;X];
-     [X;O;O];[X;X;O];
-     [X;X;O]]
-    (Board.win_state_matrix board)
-
 let tests =
   "Board suite">:::
   ["new board returns a board with all EMPTY tokens">:: empty_board;
@@ -124,6 +109,4 @@ let tests =
    get_reverse_diagonal_test;
    "get_diagonals returns both diagonals as a nested list">::
    get_diagonals_test;
-   "win_state_matrix returns all of the possible win
-conditions">::win_state_test;
   ]

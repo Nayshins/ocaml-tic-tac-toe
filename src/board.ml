@@ -48,10 +48,3 @@ let get_reverse_diagonal board =
 
 let get_diagonals board =
   [get_diagonal board; get_reverse_diagonal board;]
-
-(* TODO move this to rules module *)
-let win_state_matrix board =
-  let columns = get_columns board in
-  let rows = get_rows board in
-  let diagonals = get_diagonals board in
-  List.concat [rows; columns; diagonals]

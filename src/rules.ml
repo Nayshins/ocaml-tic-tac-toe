@@ -22,8 +22,14 @@ let check_for_winner win_states =
       | _ -> false
       )
 
+let win_state_matrix board =
+  let columns = Board.get_columns board in
+  let rows = Board.get_rows board in
+  let diagonals = Board.get_diagonals board in
+  List.concat [rows; columns; diagonals]
+
 let is_token_winner board token =
-  let win_states = (Board.win_state_matrix board) in
+  let win_states = (win_state_matrix board) in
   let checked_rows =
     check_for_token_win win_states token in
   let winning_rows = List.filter checked_rows ~f:(fun row -> row = true) in
@@ -39,7 +45,7 @@ let is_draw board =
   empty_cells = []
 
 let is_game_over board =
-  if is_winner (Board.win_state_matrix board) then
+  if is_winner (win_state_matrix board) then
     true
   else if is_draw board then
     true

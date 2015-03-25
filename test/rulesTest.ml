@@ -98,6 +98,21 @@ let test_is_game_over_false test_ctxt =
                          O;O;EMPTY 5;
                          X;X;EMPTY 8])
 
+let win_state_test test_ctxt =
+  let board = [X;O;X;
+               O;X;O;
+               O;X;O] in
+  assert_equal
+    ~ctxt:test_ctxt
+    [[X;O;X];
+     [O;X;O];
+     [O;X;O];
+     [X;O;O];
+     [O;X;X];
+     [X;O;O];[X;X;O];
+     [X;X;O]]
+    (Rules.win_state_matrix board)
+
 let tests =
   "Rules Tests">:::
   ["is token winner returns false on empty list" >::
@@ -117,4 +132,6 @@ let tests =
    "is_game_over returns true when there is a draw" >:: test_is_game_over_draw;
    "is_game over returns false when the game is not over" >::
    test_is_game_over_false;
+   "win_state_matrix returns all of the possible win
+conditions">::win_state_test;
   ]
