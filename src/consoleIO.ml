@@ -16,7 +16,7 @@ let print_to_console message =
 
 let print_board board =
   (Grid.get_rows board)
-  |> BoardFormatter.format_rows
-  |> BoardFormatter.concat_seperator
+  |> BoardPresenter.format_rows
+  |> BoardPresenter.concat_seperator
   |> Pervasives.print_endline
 end

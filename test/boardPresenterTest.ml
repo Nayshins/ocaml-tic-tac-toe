@@ -6,13 +6,13 @@ let string_of_row_test test_ctxt =
   assert_equal
     ~ctxt:test_ctxt
     " X | O | X "
-    (BoardFormatter.string_of_row [X;O;X])
+    (BoardPresenter.string_of_row [X;O;X])
 
 let concat_seperator_test test_ctxt =
   assert_equal
     ~ctxt:test_ctxt
     " X | O | X \n---+---+---\n O | X | O \n---+---+---\n X | O | X "
-    (BoardFormatter.concat_seperator [" X | O | X ";
+    (BoardPresenter.concat_seperator [" X | O | X ";
                                  " O | X | O ";
                                  " X | O | X ";])
 
@@ -22,7 +22,7 @@ let format_rows_test test_ctxt =
     [" X | O | X ";
      " O | X | O ";
      " X | O | X ";]
-    (BoardFormatter.format_rows [[X; O; X];
+    (BoardPresenter.format_rows [[X; O; X];
                             [O; X; O;];
                             [X; O; X;]])
 

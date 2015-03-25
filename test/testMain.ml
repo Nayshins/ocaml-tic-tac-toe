@@ -7,7 +7,7 @@ let tests =
    GridTest.tests;
    RulesTest.tests;
    PlayerTest.tests;
-   BoardFormatterTest.tests;
+   BoardPresenterTest.tests;
    NegamaxTest.tests;
    SimpleComputerTest.tests;
    HumanTest.tests;
