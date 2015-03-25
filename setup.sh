@@ -46,6 +46,8 @@ opam init
 opam switch system
 eval `opam config env`
 
+opam update --use-internal-solver
+
 opam install camlp4 core ounit
 
 fancy_echo "Installation complete. Run make to build and play the game."

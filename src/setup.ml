@@ -1,6 +1,6 @@
 open Core.Std
 open IO
-open Controller
+open Strategy
 open Negamax
 open SimpleComputer
 open Human
@@ -30,9 +30,9 @@ module Setup (IO:IO) = struct
     let module Human = Human (IO) in
     let input = (IO.get_player_input ()) in
     match input with
-    | "n" -> (module Negamax : Controller)
-    | "s" -> (module SimpleComputer : Controller)
-    | "h" -> (module Human : Controller)
+    | "n" -> (module Negamax : Strategy)
+    | "s" -> (module SimpleComputer : Strategy)
+    | "h" -> (module Human : Strategy)
     |  _ ->(IO.print_to_console "Invalid selection: Please enter ,n ,s, or
 h");
       pick_controller ()
@@ -45,11 +45,11 @@ h");
   let setup_players () =
     welcome_message ();
     IO.print_to_console "Who will be Controlling X?\n";
-    let (module Player1Controller : Controller) = pick_controller () in
-    let module Player1 = PlayerX (Player1Controller) in
+    let (module Player1Strategy : Strategy) = pick_controller () in
+    let module Player1 = PlayerX (Player1Strategy) in
     IO.print_to_console "Who will be Controlling O?\n";
-    let (module Player2Controller : Controller) = pick_controller () in
-    let module Player2 = PlayerO (Player2Controller) in
+    let (module Player2Strategy : Strategy) = pick_controller () in
+    let module Player2 = PlayerO (Player2Strategy) in
     let module Game = Game (Player1) (Player2) (IO) in
     Game.game_setup ()
 
