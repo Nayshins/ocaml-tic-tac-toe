@@ -35,11 +35,15 @@ brew_is_upgradable() {
   ! brew outdated --quiet "$name" >/dev/null
 }
 
+brew_expand_alias() {
+  brew info "$1" 2>/dev/null | head -1 | awk '{gsub(/:/, ""); print $1}'
+}
+
 brew_install_or_upgrade 'ocaml'
 brew_install_or_upgrade 'opam'
 
 opam init
-opam switch 4.02.1
+opam switch system
 eval `opam config env`
 
 opam install camlp4 core ounit
