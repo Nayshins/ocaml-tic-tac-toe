@@ -23,11 +23,25 @@ brew_install_or_upgrade() {
   fi
 }
 
+brew_is_installed() {
+  local name="$(brew_expand_alias "$1")"
+
+  brew list -1 | grep -Fqx "$name"
+}
+
+brew_is_upgradable() {
+  local name="$(brew_expand_alias "$1")"
+
+  ! brew outdated --quiet "$name" >/dev/null
+}
+
 brew_install_or_upgrade 'ocaml'
 brew_install_or_upgrade 'opam'
 
 opam init
+opam switch 4.02.1
 eval `opam config env`
 
-opam install core ounit
+opam install camlp4 core ounit
 
+fancy_echo "Installation complete. Run make to build and play the game."
