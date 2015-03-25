@@ -12,7 +12,8 @@ let tests =
    SimpleComputerTest.tests;
    HumanTest.tests;
    ConsoleIOTest.tests;
-   GameTest.tests;]
+   GameTest.tests;
+   SetupTest.tests;]
 
 let _ =
   run_test_tt_main tests
