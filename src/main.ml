@@ -13,4 +13,4 @@ let () =
   Command.Spec.(
     empty)
   (fun () -> launch_setup ())
-|> Command.run
+|> Command.run ~version:"1.0"
