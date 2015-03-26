@@ -15,8 +15,8 @@ cd Ocaml-Tic-Tac-Toe
 
 1. Run `$ ./setup.sh` from the project root directory.
 2. Follow the instructions on the script and enter 'y' when prompted
-3. Once the installation has finished you will need to reload your shell. This can be done by closing and opening a new tab, or running `$ source <path to your bash or zsh profile>`.
-4. Once the script has finished running, the project can be compiled by running `$ make` in the root directory.
+3. Once the installation has finished, you will need to reload your shell. This can be done by closing and opening a new tab, or running `$ source <path to your bash or zsh profile>`.
+4. After reloading your shell, the project can be compiled by running `$ make` in the root directory.
 
 # To Compile
 Within the root directory run,
