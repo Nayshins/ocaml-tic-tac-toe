@@ -8,7 +8,6 @@ module type Game = sig
 end
 
 module Game (PlayerX : Player) (PlayerO : Player) (IO : IO)= struct
-
   let player_turn_message token  =
     IO.print_to_console ("Player" ^(Token.to_string token) ^"it is your turn\n");
     IO.print_to_console "Enter a number 1-9 to select a cell\n";

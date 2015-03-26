@@ -7,7 +7,6 @@ let launch_setup () =
   let module Setup = Setup (ConsoleIO) in
   Setup.setup_loop ()
 
-
 let () =
   Command.basic
   ~summary:"Lets play Tic Tac Toe"

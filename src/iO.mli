@@ -7,4 +7,3 @@ module type IO = sig
   val print_board : Token.token list -> unit
   val print_newline : unit -> unit
 end
-

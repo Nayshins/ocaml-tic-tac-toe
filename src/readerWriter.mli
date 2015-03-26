@@ -7,4 +7,3 @@ module type ReaderWriter = sig
   val print_endline : string -> unit
   val print_newline : unit -> unit
 end
-

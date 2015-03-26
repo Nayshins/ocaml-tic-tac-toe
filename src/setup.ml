@@ -8,22 +8,22 @@ open Player
 open Game
 
 module Setup (IO:IO) = struct
-
   let controller_message () =
     IO.print_to_console "Enter 'h' for a human player.\n";
     IO.print_to_console "Enter 's' for a simple computer player.\n";
     IO.print_to_console "Enter 'n' for an impossible computer player.\n";
-    IO.print_to_console "\n"
+    IO.print_newline ()
 
   let play_again_message () =
+    IO.print_newline ();
     IO.print_to_console "Would you like to play again?\n";
     IO.print_to_console "enter 'y' to play again,\n";
     IO.print_to_console "or any other key to quit";
-    IO.print_to_console "\n"
+    IO.print_newline ()
 
   let welcome_message () =
     IO.print_to_console "Welcome to Tic Tac Toe!\n";
-    IO.print_to_console "\n"
+    IO.print_newline ()
 
   let rec pick_controller () =
     controller_message ();

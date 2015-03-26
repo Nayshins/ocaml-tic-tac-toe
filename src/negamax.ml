@@ -2,7 +2,6 @@ open Core.Std
 open Token
 
 module Negamax = struct
-
   let board_score board token =
     if (Rules.is_token_winner board token) then
       1000
