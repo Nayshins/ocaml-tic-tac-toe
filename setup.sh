@@ -50,4 +50,5 @@ opam update --use-internal-solver
 
 opam install camlp4 core ounit
 
-fancy_echo "Installation complete. Run make to build and play the game."
+fancy_echo "Installation complete. Refresh your source, then run make to build
+the project"
