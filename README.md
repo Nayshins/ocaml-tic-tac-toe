@@ -6,7 +6,7 @@ In order to run the included setup script, make sure you have homebrew installed
 
 ## Download the project
 ```
-git clone https://github.com/Nayshins/Ocaml-Tic-Tac-Toe.git
+git clone https://github.com/Nayshins/ocaml-tic-tac-toe.git
 cd Ocaml-Tic-Tac-Toe
 ```
 
