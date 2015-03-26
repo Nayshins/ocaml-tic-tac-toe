@@ -16,6 +16,7 @@ module Setup (IO:IO) = struct
 
   let play_again_message () =
     IO.print_newline ();
+    IO.print_newline ();
     IO.print_to_console "Would you like to play again?\n";
     IO.print_to_console "enter 'y' to play again,\n";
     IO.print_to_console "or any other key to quit";
