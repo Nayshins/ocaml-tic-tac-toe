@@ -36,4 +36,3 @@ let tests =
    "playerO get_token returns O token">:: playerO_test_get_token;
    "playerX get move returns the first open square">:: playerX_test_make_move;
   ]
-

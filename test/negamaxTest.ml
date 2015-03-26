@@ -78,7 +78,6 @@ let negamax_base_returns_cell_for_win test_ctxt =
     8
     (Negamax.negamax_base board X)
 
-
 let tests =
   "Negamax tests">:::
   ["board score returns 1000 when token is the winner">::
