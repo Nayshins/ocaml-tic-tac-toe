@@ -11,6 +11,12 @@ In order to run the included setup script, make sure you have homebrew installed
 5. Once the installation has finished you will need to reload your shell. This can be done by closing and opening a new tab, or running `$ source <path to your bash or zsh profile>`
 6. Once the script has finished running, the project can be compiled by running `$ make` in the root directory
 
+# To Compile
+Within the root directory run,
+```
+$ make
+```
+
 # To Play
 Within the root directory run,
 ```
