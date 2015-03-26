@@ -1,7 +1,9 @@
 .PHONY: ttt clean test clean_test
 
-ttt: src/main.ml
+default: src/main.ml
 	corebuild src/main.native -r -Is src -pkg core -use-ocamlfind -quiet
+
+run: src/main.ml
 	./main.native
 
 test: test/testMain.ml
@@ -11,7 +13,6 @@ test: test/testMain.ml
 clean: src/main.ml
 	rm -rf _build
 	corebuild src/main.native -r -Is src -pkg core -use-ocamlfind -quiet
-	./main.native
 
 clean_test: test/testMain.ml
 	rm -rf _build
